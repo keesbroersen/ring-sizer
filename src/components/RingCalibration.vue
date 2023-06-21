@@ -59,7 +59,7 @@ const creditCardHeight = computed(() => {
   justify-content: center;
   margin: 40px -12px;
   padding: 40px 0;
-  min-height: 500px;
+  min-height: 400px;
   width: calc(100% + 24px);
   background-color: #e9b9c4;
 }
@@ -75,20 +75,21 @@ const creditCardHeight = computed(() => {
 
 .card-calibration__card:before,
 .card-calibration__card:after{
+  content: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 260 260" style="enable-background:new 0 0 260 260;" xml:space="preserve"><polygon points="2,104.4 130,258 258,104.4 181.4,104.4 181.4,2 78.8,2 78.8,104.4 "/></svg>');
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  width: 40px;
   font-size: 54px;
 }
 
 .card-calibration__card:before{
-  content: '⬇';
-  top: -64px;   
+  top: -60px;
 }
 
 .card-calibration__card:after{
-  content: '⬆';
-  bottom: -64px;
+  transform: translateX(-50%) rotate(180deg);
+  bottom: -60px;
 }
 
 .card-calibration__slider {
@@ -102,6 +103,6 @@ const creditCardHeight = computed(() => {
 }
 
 button {
-  margin-top: 32px;
+  margin-top: auto;
 }
 </style>

@@ -64,7 +64,7 @@ function updateMarkerPosition() {
   justify-content: center;
   margin: 40px -12px;
   padding: 40px 0;
-  min-height: 500px;
+  min-height: 400px;
   width: calc(100% + 24px);
   background-color: #e9b9c4;
   /* background-image: linear-gradient(to right, #ccc 1px, transparent 1px),

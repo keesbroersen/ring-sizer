@@ -1,8 +1,6 @@
 <template>
   <RingCalibration v-if="!isCalibrated" @pixelsPerMm="(event) => pixelsPerMm = event" @isCalibrated="(event) => isCalibrated = event" />
   <RingSizer v-else :pixelsPerMm="pixelsPerMm" />
-
-  {{ pixelsPerMm }}
 </template>
 
 <script setup lang="ts">
