@@ -123,7 +123,7 @@ const ringSizeList = computed(() => {
   justify-content: center;
   margin: 40px -12px;
   padding: 40px 0;
-  min-height: 400px;
+  min-height: 300px;
   width: calc(100% + 24px);
   background-color: #e9b9c4;
   /* background-image: linear-gradient(to right, #ccc 1px, transparent 1px),
@@ -158,6 +158,12 @@ const ringSizeList = computed(() => {
   z-index: 2;
   border-radius: 50%;
   background: #fff;
+  box-shadow: 0 0 0 5px rgba(0,0,0,0.25);
+  transition: all 0.15s;
+}
+
+.ring-sizer__circle * {
+  transition: all 0.15s;
 }
 
 .ring-sizer__circle:before,

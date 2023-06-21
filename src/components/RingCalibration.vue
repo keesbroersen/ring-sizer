@@ -9,16 +9,19 @@
         Plaats kaart hier
       </div>
       <div class="card-calibration__slider">
-        <input type="range" :min="4" :max="40" step="0.1" v-model="screenDiagonal" @input="$emit('pixelsPerMm', pixelsPerMm)" />
+        <input type="range" :min="sliderMin" :max="sliderMax" step="0.1" v-model="screenDiagonal" @input="$emit('pixelsPerMm', pixelsPerMm)" />
       </div>
     </div>
 
     <button @click="$emit('isCalibrated', true)">Next</button>
 
-    <!-- <p>
+    <p>
       {{ pixelsPerMm.toFixed(0) }} px p/mm<br />
-      {{ screenDiagonal }}"
-    </p> -->
+      {{ screenDiagonal }}"<br/>
+      {{ screenWidth }} screenWidth<br/>
+      {{ sliderMin }} sliderMin<br/>
+      {{ sliderMax }} sliderMax
+    </p>
   </div>
 </template>
 
@@ -27,6 +30,21 @@ import { ref, computed } from "vue";
 
 const screenWidth = ref(screen.width);
 const screenHeight = ref(screen.height);
+
+const sliderMin = computed(() => {
+  // For 390: ~7
+  // For 1512px: ~11
+  // For 1920px: ~15
+  return 0.0035 * screenWidth.value + 5;
+})
+
+const sliderMax = computed(() => {
+  // For 390: ~15
+  // For 1512: ~20
+  // For 1920px: ~35
+  return 0.0035 * screenWidth.value + 25;
+})
+
 const screenDiagonal = ref(20.0);
 const ppi = computed(() => {
   const diagonalPixels = Math.sqrt(
@@ -71,6 +89,7 @@ const creditCardHeight = computed(() => {
   background-color: #fff;
   aspect-ratio: 1.58;
   border-radius: 10px;
+  transition: all 0.15s;
 }
 
 .card-calibration__card:before,
