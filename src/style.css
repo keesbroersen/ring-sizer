@@ -14,7 +14,7 @@
   -webkit-text-size-adjust: 100%;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -30,15 +30,11 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2em;
   line-height: 1.1;
 }
 
@@ -62,7 +58,37 @@ button:focus-visible {
 }
 
 #app {
+  margin: 0 auto;
+  padding: 40px 12px 32px;
+  max-width: 1280px;
   text-align: center;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none; 
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  height: 6px;
+  background: #ccc;
+}
+
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-moz-range-track {
+  height: 12px;
+  background: #666;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none; 
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: red;
+  border: none;
+  transition: .2s ease-in-out;
 }
 
 @media (prefers-color-scheme: light) {

@@ -60,13 +60,14 @@ function updateMarkerPosition() {
 
 <style scoped>
 .ring-sizer {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 40px -12px;
+  padding: 40px 0;
   min-height: 500px;
-  width: 100vw;
-  position: relative;
-  margin-top: 50px;
+  width: calc(100% + 24px);
   background-color: #fff;
   background-image: linear-gradient(to right, #ccc 1px, transparent 1px),
     linear-gradient(to bottom, #ccc 1px, transparent 1px);
@@ -138,12 +139,5 @@ function updateMarkerPosition() {
   display: flex;
   height: 4px;
   width: 100%;
-}
-
-.ring-sizer__slider input {
-  height: 100%;
-  width: 100%;
-  background: #000;
-  -webkit-appearance: none;
 }
 </style>

@@ -9,7 +9,7 @@
         Plaats kaart hier
       </div>
       <div class="card-calibration__slider">
-        <input type="range" :min="10" :max="40" step="0.1" v-model="screenDiagonal" @input="$emit('pixelsPerMm', pixelsPerMm)" />
+        <input type="range" :min="4" :max="40" step="0.1" v-model="screenDiagonal" @input="$emit('pixelsPerMm', pixelsPerMm)" />
       </div>
     </div>
 
@@ -52,14 +52,15 @@ const creditCardHeight = computed(() => {
 
 <style scoped>
 .card-calibration {
-  min-height: 500px;
-  min-width: 500px;
-  margin-top: 50px;
   position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
+  margin: 40px -12px;
+  padding: 40px 0;
+  min-height: 500px;
+  width: calc(100% + 24px);
 }
 .card-calibration__card {
   display: flex;
@@ -73,17 +74,10 @@ const creditCardHeight = computed(() => {
 .card-calibration__slider {
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: 16px;
   display: flex;
   height: 4px;
   width: 100%;
-}
-
-.card-calibration__slider input {
-  height: 100%;
-  width: 100%;
-  background: #000;
-  -webkit-appearance: none;
 }
 
 button {
