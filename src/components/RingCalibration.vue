@@ -61,23 +61,44 @@ const creditCardHeight = computed(() => {
   padding: 40px 0;
   min-height: 500px;
   width: calc(100% + 24px);
+  background-color: #e9b9c4;
 }
 .card-calibration__card {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
-  background-color: #ccc;
+  background-color: #fff;
   aspect-ratio: 1.58;
   border-radius: 10px;
 }
+
+.card-calibration__card:before,
+.card-calibration__card:after{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 54px;
+}
+
+.card-calibration__card:before{
+  content: '⬇';
+  top: -64px;   
+}
+
+.card-calibration__card:after{
+  content: '⬆';
+  bottom: -64px;
+}
+
 .card-calibration__slider {
   position: absolute;
   left: 0;
-  bottom: 16px;
+  bottom: 0;
   display: flex;
-  height: 4px;
+  height: 20px;
   width: 100%;
+  background: #fff;
 }
 
 button {
