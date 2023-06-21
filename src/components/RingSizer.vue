@@ -23,12 +23,27 @@
           :min="sliderMin"
           :max="sliderMax"
           v-model="sliderValue"
-          @input="updateMarkerPosition"
-          step="0.25"
+          step="1"
         />
       </div>
     </div>
-    <div class="ring-sizer-list">list</div>
+
+    <table class="ring-sizer-table">
+      <tr>
+        <th>Maat</th>
+        <th>Binnendiameter</th>
+        <th>Omtrek</th>
+      </tr>
+      <tr
+        v-for="ring in ringSizeList"
+        :key="ring.size"
+        :class="{ active: ring.isActive }"
+      >
+        <td>{{ ring.size }}</td>
+        <td>{{ ring.diameter }} mm</td>
+        <td>{{ ring.circumference.toFixed(0) }}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -44,15 +59,59 @@ const props = defineProps({
 
 const sliderMin = 14; // in mm
 const sliderMax = 22; // in mm
-const sliderValue = ref(18); // in mm
+const sliderValue = ref(16); // in mm
 
 const ringSizeInPx = computed(() => {
   return sliderValue.value * props.pixelsPerMm;
 });
 
-function updateMarkerPosition() {
-  // do nothing
-}
+const ringSizeList = computed(() => {
+  // const smallestSize = 44;
+  // const biggestSize = 69;
+
+  // Based on circumference in mm 
+  // const ringSizeList = Array.from(
+  //   { length: biggestSize - smallestSize + 1 },
+  //   (_, i) => {
+  //     const size = smallestSize + i;
+  //     return {
+  //       size: size,
+  //       mm: size / Math.PI,
+  //       isActive: false,
+  //     };
+  //   }
+  // );
+
+  // Based on diameter in mm
+  const ringSizeList = Array.from(
+    { length: 22 - 13 + 1 },
+    (_, i) => {
+      const diameter = 13 + i;
+      return {
+        size: diameter,
+        diameter,
+        circumference: diameter * Math.PI,
+        isActive: false,
+      };
+    }
+  );
+
+  const closestRingSize = ringSizeList.reduce((prev, curr) => {
+    return Math.abs(curr.diameter - sliderValue.value) <
+      Math.abs(prev.diameter - sliderValue.value)
+      ? curr
+      : prev;
+  });
+
+  const ringIndex = ringSizeList.findIndex(
+    (ring) => ring.size === closestRingSize.size
+  );
+  
+  const list = ringSizeList.slice(ringIndex - 1, ringIndex + 2);
+  ringSizeList[ringIndex].isActive = true;
+
+  return list;
+});
 </script>
 
 <style scoped>
@@ -75,7 +134,7 @@ function updateMarkerPosition() {
 .ring-sizer:after {
   content: "";
   position: absolute;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .ring-sizer:before {
@@ -108,7 +167,7 @@ function updateMarkerPosition() {
   top: -50vh;
   height: 100vh;
   width: 1px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .ring-sizer__circle:before {
@@ -137,18 +196,6 @@ function updateMarkerPosition() {
   bottom: 0;
 }
 
-/* .ring-sizer__circle:before {
-  content: '';
-  position: absolute;
-  top: -20%;
-  left: -20%;
-  height: 140%;
-  width: 140%;
-  background: #fff;
-  filter: blur(5px);
-  opacity: 0.8;
-} */
-
 .ring-sizer__marker {
   position: absolute;
   top: 50%;
@@ -174,5 +221,26 @@ function updateMarkerPosition() {
   height: 20px;
   width: 100%;
   background: #fff;
+}
+
+.ring-sizer-table {
+  border-collapse: collapse;
+  border-top: 1px solid #eee;
+  border-right: 1px solid #eee;
+  width: 100%;
+}
+
+.ring-sizer-table th,
+.ring-sizer-table td {
+  padding: 10px 0;
+  width: calc(100% / 3);
+  text-align: center;
+  border-left: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.ring-sizer-table .active {
+  background: #eee;
+  font-weight: bold;
 }
 </style>
