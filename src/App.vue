@@ -3,7 +3,7 @@
   <SelectPhone v-if="page === 'phone'" @setPage="(event) => page = event" @pixelsPerMm="(event) => pixelsPerMm = event" />
   <RingCalibration v-if="page === 'card'" @pixelsPerMm="(event) => pixelsPerMm = event" @setPage="(event) => page = event" />
   <RingSizer v-if="page === 'sizer'" :pixelsPerMm="pixelsPerMm" />
-  <div style="position: absolute; right: 0; bottom: 0;">{{ pixelsPerMm.toFixed(2) }}</div>
+  <div style="position: fixed; right: 0; bottom: 0; font-size: 11px; padding: 2px 4px;">{{ pixelsPerMm.toFixed(2) }}px p/mm</div>
 </template>
 
 <script setup lang="ts">

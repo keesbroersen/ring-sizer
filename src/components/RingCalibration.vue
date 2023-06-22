@@ -23,10 +23,9 @@
       </div>
     </div>
 
-    <button @click="$emit('page', 'sizer')">Volgende</button>
+    <button @click="$emit('setPage', 'sizer')">Volgende</button>
 
     <p>
-      {{ pixelsPerMm.toFixed(0) }} px p/mm<br />
       {{ screenDiagonal }}"<br />
       {{ screenWidth }} screenWidth<br />
       {{ sliderMin }} sliderMin<br />

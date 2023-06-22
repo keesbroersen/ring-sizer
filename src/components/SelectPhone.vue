@@ -24,7 +24,7 @@ const ppi = ref(0);
 const phones = devices.phones as phone[];
 
 const onChange = () => {
-  const pixelsPerMm = ppi.value / 25.4;
+  const pixelsPerMm = ppi.value / 25.4 / devicePixelRatio;
   emit('pixelsPerMm', pixelsPerMm);
 }
 </script>
