@@ -66,22 +66,6 @@ const ringSizeInPx = computed(() => {
 });
 
 const ringSizeList = computed(() => {
-  // const smallestSize = 44;
-  // const biggestSize = 69;
-
-  // Based on circumference in mm 
-  // const ringSizeList = Array.from(
-  //   { length: biggestSize - smallestSize + 1 },
-  //   (_, i) => {
-  //     const size = smallestSize + i;
-  //     return {
-  //       size: size,
-  //       mm: size / Math.PI,
-  //       isActive: false,
-  //     };
-  //   }
-  // );
-
   // Based on diameter in mm
   const ringSizeList = Array.from(
     { length: 22 - 13 + 1 },
