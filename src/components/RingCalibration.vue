@@ -57,14 +57,14 @@ const sliderMin = computed(() => {
   // For 390: ~6
   // For 1512: ~11
   // For 1920: ~15
-  return linearInterpolation(5, 15, 390, 1920, screenWidth.value);
+  return linearInterpolation(4, 15, 390, 1920, screenWidth.value);
 });
 
 const sliderMax = computed(() => {
   // For 390: ~15
   // For 1512: ~20
   // For 1920: ~35
-  return linearInterpolation(15, 35, 390, 1920, screenWidth.value);
+  return linearInterpolation(10, 25, 390, 1920, screenWidth.value);
 });
 
 const screenDiagonal = ref(20.0);
@@ -98,10 +98,17 @@ const creditCardHeight = computed(() => {
   align-items: center;
   justify-content: center;
   margin: 40px -12px;
-  padding: 40px 0;
+  padding: 50px 0 70px;
   min-height: 400px;
   width: calc(100% + 24px);
   background-color: #e9b9c4;
+}
+
+/* for mobile */
+@media (max-width: 767px) {
+  .card-calibration {
+    min-height: 540px;
+  }
 }
 .card-calibration__card {
   position: relative;
