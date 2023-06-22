@@ -31,18 +31,25 @@ import { ref, computed } from "vue";
 const screenWidth = ref(screen.width);
 const screenHeight = ref(screen.height);
 
+const linearInterpolation = (y1: number, y2: number, x1:number, x2:number, x: number) => {
+  // y = mx + b
+  const m = (y2 - y1) / (x2 - x1);
+  const b = y1 - m * x1;
+  return m * x + b;
+}
+
 const sliderMin = computed(() => {
-  // For 390: ~7
-  // For 1512px: ~11
-  // For 1920px: ~15
-  return 0.0035 * screenWidth.value + 5;
+  // For 390: ~6
+  // For 1512: ~11
+  // For 1920: ~15
+  return linearInterpolation(6, 15, 390, 1920, screenWidth.value);
 })
 
 const sliderMax = computed(() => {
   // For 390: ~15
   // For 1512: ~20
-  // For 1920px: ~35
-  return 0.0035 * screenWidth.value + 25;
+  // For 1920: ~35
+  return linearInterpolation(15, 35, 390, 1920, screenWidth.value);
 })
 
 const screenDiagonal = ref(20.0);
