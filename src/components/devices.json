@@ -1,0 +1,242 @@
+{
+  "phones": [
+    {
+      "title": "iPhone 14 Plus",
+      "ppi": 458
+    },
+    {
+      "title": "iPhone 14 Pro Max",
+      "ppi": 458
+    },
+    {
+      "title": "iPhone 14 Pro",
+      "ppi": 458
+    },
+    {
+      "title": "iPhone 14",
+      "ppi": 458
+    },
+    {
+      "title": "iPhone SE 3rd gen",
+      "ppi": 326
+    },
+    {
+      "title": "iPhone 13",
+      "ppi": 460
+    },
+    {
+      "title": "iPhone 13 mini",
+      "ppi": 476
+    },
+    {
+      "title": "iPhone 13 Pro Max",
+      "ppi": 458
+    },
+    {
+      "title": "iPhone 13 Pro",
+      "ppi": 460
+    },
+    {
+      "title": "iPhone 12",
+      "ppi": 460
+    },
+    {
+      "title": "iPhone 12 mini",
+      "ppi": 476
+    },
+    {
+      "title": "iPhone 12 Pro Max",
+      "ppi": 458
+    },
+    {
+      "title": "iPhone 12 Pro",
+      "ppi": 460
+    },
+    {
+      "title": "iPhone SE 2nd gen",
+      "ppi": 326
+    },
+    {
+      "title": "iPhone 11 Pro Max",
+      "ppi": 458
+    },
+    {
+      "title": "iPhone 11 Pro",
+      "ppi": 458
+    },
+    {
+      "title": "iPhone 11",
+      "ppi": 326
+    },
+    {
+      "title": "iPod touch 7th gen",
+      "ppi": 326
+    },
+    {
+      "title": "iPhone XR",
+      "ppi": 326
+    },
+    {
+      "title": "iPhone XS Max",
+      "ppi": 458
+    },
+    {
+      "title": "iPhone XS",
+      "ppi": 458
+    },
+    {
+      "title": "iPhone X",
+      "ppi": 458
+    },
+    {
+      "title": "iPhone 8 Plus",
+      "ppi": 401
+    },
+    {
+      "title": "iPhone 8",
+      "ppi": 326
+    },
+    {
+      "title": "iPhone 7 Plus",
+      "ppi": 401
+    },
+    {
+      "title": "iPhone 7",
+      "ppi": 326
+    },
+    {
+      "title": "iPhone SE",
+      "ppi": 326
+    },
+    {
+      "title": "iPhone 6s Plus",
+      "ppi": 401
+    },
+    {
+      "title": "iPhone 6s",
+      "ppi": 326
+    },
+    {
+      "title": "iPhone 6 Plus",
+      "ppi": 401
+    },
+    {
+      "title": "iPhone 6",
+      "ppi": 326
+    },
+    {
+      "title": "iPhone 5s",
+      "ppi": 326
+    }
+  ],
+  "tablets": [
+    {
+      "title": "iPad Pro 12.9\" (5th gen)",
+      "ppi": 264
+    },
+    {
+      "title": "iPad Pro 11\" (3rd gen)",
+      "ppi": 264
+    },
+    {
+      "title": "iPad (9th gen)",
+      "ppi": 264
+    },
+    {
+      "title": "iPad mini (6th gen)",
+      "ppi": 326
+    },
+    {
+      "title": "iPad Air (4th gen)",
+      "ppi": 264
+    },
+    {
+      "title": "iPad Pro 12.9\" (4th gen)",
+      "ppi": 264
+    },
+    {
+      "title": "iPad Pro 11\" (2nd gen)",
+      "ppi": 264
+    },
+    {
+      "title": "iPad (8th gen)",
+      "ppi": 264
+    },
+    {
+      "title": "iPad Air (3rd gen)",
+      "ppi": 264
+    },
+    {
+      "title": "iPad mini (5th gen)",
+      "ppi": 326
+    },
+    {
+      "title": "iPad Pro 12.9\" (3rd gen)",
+      "ppi": 264
+    },
+    {
+      "title": "iPad Pro 11\"",
+      "ppi": 264
+    },
+    {
+      "title": "iPad (7th gen)",
+      "ppi": 264
+    },
+    {
+      "title": "iPad Air (2nd gen)",
+      "ppi": 264
+    },
+    {
+      "title": "iPad mini 4",
+      "ppi": 326
+    },
+    {
+      "title": "iPad Pro 12.9\" (2nd gen)",
+      "ppi": 264
+    },
+    {
+      "title": "iPad Pro 10.5\"",
+      "ppi": 264
+    },
+    {
+      "title": "iPad (6th gen)",
+      "ppi": 264
+    },
+    {
+      "title": "iPad Pro 12.9\"",
+      "ppi": 264
+    },
+    {
+      "title": "iPad Pro 9.7\"",
+      "ppi": 264
+    },
+    {
+      "title": "iPad mini 3",
+      "ppi": 326
+    },
+    {
+      "title": "iPad mini 2",
+      "ppi": 326
+    },
+    {
+      "title": "iPad mini",
+      "ppi": 163
+    },
+    {
+      "title": "iPad Air",
+      "ppi": 264
+    },
+    {
+      "title": "iPad (5th gen)",
+      "ppi": 264
+    },
+    {
+      "title": "iPad Pro 12.9\" (1st gen)",
+      "ppi": 264
+    },
+    {
+      "title": "iPad Pro 9.7\" (1st gen)",
+      "ppi": 264
+    }
+  ]
+}

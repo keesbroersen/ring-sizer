@@ -13,6 +13,7 @@
         }"
       >
         <span class="ring-sizer__circle-lines"></span>
+        <span class="ring-sizer__circle-arrows"></span>
         <div class="ring-sizer__marker" :style="{ width: ringSizeInPx + 'px' }">
           <span>{{ sliderValue }} mm</span>
         </div>
@@ -186,6 +187,26 @@ const ringSizeList = computed(() => {
   bottom: 0;
 }
 
+.ring-sizer__circle-arrows:before,
+.ring-sizer__circle-arrows:after {
+  content: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" fill="%23000000" viewBox="0 0 24 24"><path d="m0 6.4 12 12 12-12z"/></svg>');
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(270deg);
+  height: 12px;
+  width: 12px;
+}
+
+.ring-sizer__circle-arrows:before {
+  left: 3px;
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.ring-sizer__circle-arrows:after {
+  right: 3px;
+}
+
+
 .ring-sizer__marker {
   position: absolute;
   top: 50%;
@@ -205,6 +226,7 @@ const ringSizeList = computed(() => {
 
 .ring-sizer__slider {
   position: absolute;
+  z-index: 2;
   left: 0;
   bottom: 0;
   display: flex;

@@ -1,14 +1,19 @@
 <template>
-  <RingCalibration v-if="!isCalibrated" @pixelsPerMm="(event) => pixelsPerMm = event" @isCalibrated="(event) => isCalibrated = event" />
-  <RingSizer v-else :pixelsPerMm="pixelsPerMm" />
+  <Start v-if="page === 'start'" @setPage="(event) => page = event" />
+  <SelectPhone v-if="page === 'phone'" @setPage="(event) => page = event" @pixelsPerMm="(event) => pixelsPerMm = event" />
+  <RingCalibration v-if="page === 'card'" @pixelsPerMm="(event) => pixelsPerMm = event" @setPage="(event) => page = event" />
+  <RingSizer v-if="page === 'sizer'" :pixelsPerMm="pixelsPerMm" />
+  <div style="position: absolute; right: 0; bottom: 0;">{{ pixelsPerMm.toFixed(2) }}</div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import RingCalibration from './components/RingCalibration.vue';
 import RingSizer from './components/RingSizer.vue'
+import Start from './components/Start.vue';
+import SelectPhone from './components/SelectPhone.vue';
 
 const pixelsPerMm = ref(3);
-const isCalibrated = ref(false);
+const page = ref('start');
 </script>
 
