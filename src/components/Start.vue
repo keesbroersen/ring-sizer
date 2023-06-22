@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Welkom</h1>
-    <p>Wilt u uw ringmaat meten? Gebruik onze handige methode met een creditcard of onze app voor uw telefoon. Het is eenvoudig, nauwkeurig en bespaart u tijd. Bestel nu uw perfect passende ring!</p>
+    <p>Wilt u uw ringmaat meten? Gebruik onze handige methode met een creditcard of kies uw telefoon uit de lijst. Het is eenvoudig, nauwkeurig en bespaart u tijd. Bestel nu uw perfect passende ring!</p>
     <div class="start">
       <button @click="$emit('setPage', 'card')">Gebruik een pasje</button>
       <button @click="$emit('setPage', 'phone')">Kies je telefoon</button>

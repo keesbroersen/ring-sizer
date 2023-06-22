@@ -16,7 +16,7 @@
           type="range"
           :min="sliderMin"
           :max="sliderMax"
-          step="0.1"
+          step="0.05"
           v-model="screenDiagonal"
           @input="$emit('pixelsPerMm', pixelsPerMm)"
         />
@@ -25,12 +25,12 @@
 
     <button @click="$emit('setPage', 'sizer')">Volgende</button>
 
-    <p>
+    <!-- <p>
       {{ screenDiagonal }}"<br />
       {{ screenWidth }} screenWidth<br />
       {{ sliderMin }} sliderMin<br />
       {{ sliderMax }} sliderMax
-    </p>
+    </p> -->
   </div>
 </template>
 
