@@ -44,18 +44,14 @@ const screenHeight = ref(screen.height);
 const dpr = computed(() => devicePixelRatio);
 
 const sliderMin = computed(() => {
-  // For 390: ~6
-  // For 1512: ~11
-  // For 1920: ~15
-  if(screenWidth.value < 768) return (screenSizeInch.value = 10) && 5;
+  if(screenWidth.value < 768) return (screenSizeInch.value = 10) && 4;
+  if(screenWidth.value < 1920) return (screenSizeInch.value = 10) && 6;
   return (screenSizeInch.value = 20) && 11;
 });
 
 const sliderMax = computed(() => {
-  // For 390: ~15
-  // For 1512: ~20
-  // For 1920: ~35
-  if(screenWidth.value < 768) return 15;
+  if(screenWidth.value < 768) return 7;
+  if(screenWidth.value < 1920) return 20;
   return 35;
 });
 
