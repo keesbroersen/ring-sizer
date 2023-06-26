@@ -17,7 +17,7 @@
           :min="sliderMin"
           :max="sliderMax"
           step="0.05"
-          v-model="screenDiagonal"
+          v-model="screenSizeInch"
           @input="$emit('pixelsPerMm', pixelsPerMm)"
         />
       </div>
@@ -25,12 +25,13 @@
 
     <button @click="$emit('setPage', 'sizer')">Volgende</button>
 
-    <!-- <p>
-      {{ screenDiagonal }}"<br />
+    <p>
+      {{ screenSizeInch }}"<br />
       {{ screenWidth }} screenWidth<br />
       {{ sliderMin }} sliderMin<br />
-      {{ sliderMax }} sliderMax
-    </p> -->
+      {{ sliderMax }} sliderMax<br />
+      {{ dpr }} devicePixelRatio
+    </p>
   </div>
 </template>
 
@@ -40,39 +41,31 @@ import { ref, computed } from "vue";
 const screenWidth = ref(screen.width);
 const screenHeight = ref(screen.height);
 
-const linearInterpolation = (
-  y1: number,
-  y2: number,
-  x1: number,
-  x2: number,
-  x: number
-) => {
-  // y = mx + b
-  const m = (y2 - y1) / (x2 - x1);
-  const b = y1 - m * x1;
-  return m * x + b;
-};
+const dpr = computed(() => devicePixelRatio);
 
 const sliderMin = computed(() => {
   // For 390: ~6
   // For 1512: ~11
   // For 1920: ~15
-  return linearInterpolation(4, 15, 390, 1920, screenWidth.value);
+  if(screenWidth.value < 768) return (screenSizeInch.value = 10) && 5;
+  return (screenSizeInch.value = 20) && 11;
 });
 
 const sliderMax = computed(() => {
   // For 390: ~15
   // For 1512: ~20
   // For 1920: ~35
-  return linearInterpolation(10, 25, 390, 1920, screenWidth.value);
+  if(screenWidth.value < 768) return 15;
+  return 35;
 });
 
-const screenDiagonal = ref(20.0);
+const screenSizeInch = ref(20);
+
 const ppi = computed(() => {
   const diagonalPixels = Math.sqrt(
     Math.pow(screenWidth.value, 2) + Math.pow(screenHeight.value, 2)
   );
-  return diagonalPixels / screenDiagonal.value;
+  return diagonalPixels / screenSizeInch.value;
 });
 const pixelsPerMm = computed(() => {
   const mmPerInch = 25.4;
