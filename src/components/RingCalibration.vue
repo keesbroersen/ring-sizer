@@ -6,10 +6,15 @@
         class="card-calibration__card"
         :style="{ height: `${creditCardHeight}px` }"
       >
-        <span class="card-calibration__card-stripe"></span>
-        <span class="card-calibration__card-name-long"></span>
-        <span class="card-calibration__card-name-short"></span>
-        Plaats kaart hier
+        <div class="card-calibration__card-content">
+          <span class="card-calibration__card-stripe"></span>
+          <span class="card-calibration__card-name-long"></span>
+          <span class="card-calibration__card-name-short"></span>
+          <p>
+            Plaats kaart hier<br/>
+            <small>(het gaat om de hoogte)</small>
+          </p>
+        </div>
       </div>
       <div class="card-calibration__slider">
         <input
@@ -25,13 +30,13 @@
 
     <button @click="$emit('setPage', 'sizer')">Volgende</button>
 
-    <p>
+    <!-- <p>
       {{ screenSizeInch }}"<br />
       {{ screenWidth }} screenWidth<br />
       {{ sliderMin }} sliderMin<br />
       {{ sliderMax }} sliderMax<br />
       {{ dpr }} devicePixelRatio
-    </p>
+    </p> -->
   </div>
 </template>
 
@@ -93,22 +98,21 @@ const creditCardHeight = computed(() => {
   background-color: #e9b9c4;
 }
 
-/* for mobile */
-@media (max-width: 767px) {
-  .card-calibration {
-    min-height: 540px;
-  }
+.card-calibration p {
+  line-height: 120%;
 }
+
+.card-calibration small {
+  font-size: 10px;
+}
+
 .card-calibration__card {
   position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background-color: #fff;
-  aspect-ratio: 1.58;
-  border-radius: 10px;
-  transition: all 0.15s;
+  width: 100%;
 }
+
 
 .card-calibration__card:before,
 .card-calibration__card:after {
@@ -127,6 +131,36 @@ const creditCardHeight = computed(() => {
 .card-calibration__card:after {
   transform: translateX(-50%) rotate(180deg);
   bottom: -60px;
+}
+
+.card-calibration__card-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #fff;
+  aspect-ratio: 1.58;
+  border-radius: 10px;
+  transition: all 0.15s;
+}
+
+.card-calibration__card-content:before,
+.card-calibration__card-content:after {
+  content: "";
+  position: absolute;
+  left: -50vw;
+  width: 250vw;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.card-calibration__card-content:before {
+  top: 0;
+}
+
+.card-calibration__card-content:after {
+  bottom: 0;
 }
 
 .card-calibration__card-stripe,
@@ -166,5 +200,20 @@ const creditCardHeight = computed(() => {
 
 button {
   margin-top: auto;
+}
+
+/* for mobile */
+@media (max-width: 767px) {
+  .card-calibration {
+    min-height: 540px;
+  }
+
+  .card-calibration__card {
+    justify-content: start;
+  }
+
+  .card-calibration__card-content {
+    transform: translateX(-33%);
+  }
 }
 </style>
