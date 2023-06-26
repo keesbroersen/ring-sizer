@@ -46,8 +46,6 @@ import { ref, computed } from "vue";
 const screenWidth = ref(screen.width);
 const screenHeight = ref(screen.height);
 
-const dpr = computed(() => devicePixelRatio);
-
 const sliderMin = computed(() => {
   if(screenWidth.value < 768) return (screenSizeInch.value = 10) && 4;
   if(screenWidth.value < 1920) return (screenSizeInch.value = 10) && 6;
